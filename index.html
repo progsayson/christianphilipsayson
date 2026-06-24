@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Developer & Designer</title>
+  <title>Chan Sayson — Web Developer & IT Graduate</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Grid background ── */
     body::before {
       content: '';
       position: fixed;
@@ -45,7 +44,6 @@
       z-index: 0;
     }
 
-    /* ── Nav ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -91,9 +89,9 @@
       transition: background 0.2s !important;
     }
 
-    .nav-cta:hover { background: #4338CA !important; color: #fff !important; }
+    .nav-cta:hover { background: #4338CA !important; }
 
-    /* ── Hero ── */
+    /* HERO */
     #hero {
       position: relative;
       min-height: 100vh;
@@ -104,6 +102,67 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-text { flex: 1; min-width: 280px; }
+
+    .hero-photo-wrap {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 3px solid var(--indigo);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .photo-placeholder span { font-size: 2.5rem; }
+
+    .upload-btn {
+      margin-top: 0.75rem;
+      background: var(--indigo);
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .upload-btn:hover { background: #4338CA; }
+
+    #photoInput { display: none; }
 
     .hero-eyebrow {
       font-family: 'JetBrains Mono', monospace;
@@ -127,11 +186,11 @@
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .hero-accent { color: var(--indigo-light); }
@@ -148,11 +207,26 @@
 
     @keyframes blink { 50% { opacity: 0; } }
 
+    .cum-laude-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05));
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--amber);
+      padding: 0.35rem 0.9rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.25rem;
+    }
+
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: 1rem;
       color: var(--muted);
-      max-width: 540px;
-      margin-bottom: 3rem;
+      max-width: 480px;
+      margin-bottom: 2rem;
       line-height: 1.7;
     }
 
@@ -170,7 +244,6 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      letter-spacing: 0.02em;
       transition: background 0.2s, transform 0.2s;
     }
 
@@ -190,29 +263,7 @@
 
     .btn-secondary:hover { border-color: var(--indigo-light); transform: translateY(-1px); }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .scroll-line {
-      width: 40px;
-      height: 1px;
-      background: var(--muted);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollPulse { 0%,100%{width:40px} 50%{width:20px} }
-
-    /* ── Sections ── */
+    /* SECTIONS */
     section {
       position: relative;
       padding: 6rem 2.5rem;
@@ -244,10 +295,10 @@
       font-size: 1rem;
     }
 
-    /* ── Skills ── */
+    /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 1px;
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -256,33 +307,72 @@
 
     .skill-card {
       background: var(--card-bg);
-      padding: 1.75rem 1.5rem;
+      padding: 1.5rem 1.25rem;
       transition: background 0.2s;
-      cursor: default;
     }
 
     .skill-card:hover { background: rgba(79,70,229,0.08); }
 
-    .skill-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
+    .skill-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
 
     .skill-name {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
     }
 
     .skill-level {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: var(--amber);
       letter-spacing: 0.08em;
     }
 
-    /* ── Projects ── */
+    /* ACHIEVEMENTS */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .achievement-card:hover {
+      border-color: rgba(79,70,229,0.4);
+      transform: translateY(-2px);
+    }
+
+    .achievement-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+    .achievement-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .achievement-desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .achievement-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--indigo-light);
+      letter-spacing: 0.1em;
+      margin-top: 0.75rem;
+    }
+
+    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -315,40 +405,19 @@
 
     .project-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
     }
 
     .project-desc {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       line-height: 1.6;
       flex: 1;
-      margin-bottom: 1.5rem;
     }
 
-    .project-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .project-link {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--indigo-light);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    .project-link:hover { color: var(--off-white); }
-
-    .project-link-github { color: var(--muted); }
-    .project-link-github:hover { color: var(--off-white); }
-
-    /* ── About ── */
+    /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -368,7 +437,7 @@
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .stat-block {
@@ -380,7 +449,7 @@
 
     .stat-number {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: var(--indigo-light);
       letter-spacing: -0.03em;
@@ -388,16 +457,10 @@
       margin-bottom: 0.4rem;
     }
 
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
 
-    /* ── Contact ── */
-    #contact {
-      border-top: 1px solid var(--border);
-    }
+    /* CONTACT */
+    #contact { border-top: 1px solid var(--border); }
 
     .contact-inner {
       text-align: center;
@@ -406,12 +469,26 @@
     }
 
     .contact-inner h2 { margin-bottom: 1rem; }
+    .contact-inner p { color: var(--muted); margin-bottom: 2.5rem; font-size: 1.05rem; }
 
-    .contact-inner p {
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-      font-size: 1.05rem;
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
     }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--off-white);
+    }
+
+    .contact-item span { color: var(--indigo-light); }
 
     .contact-links {
       display: flex;
@@ -420,7 +497,6 @@
       flex-wrap: wrap;
     }
 
-    /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 2.5rem;
@@ -433,24 +509,20 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── Fade-in animation ── */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .fade-up.visible { opacity: 1; transform: none; }
 
-    /* ── Responsive ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { display: none; }
       section { padding: 4rem 1.25rem; }
       #hero { padding: 7rem 1.25rem 3rem; }
+      .hero-layout { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
@@ -462,34 +534,44 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <span class="nav-logo">// yourname.dev</span>
+    <span class="nav-logo">// chansayson.dev</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div id="hero">
-    <div class="hero-eyebrow">Available for work</div>
-    <h1>
-      Building things<br />
-      for the <span class="hero-accent">web</span><span class="cursor"></span>
-    </h1>
-    <p class="hero-sub">
-      I'm a full-stack developer who turns ideas into fast, accessible, and beautiful digital products. Based in the Philippines, working globally.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View my work</a>
-      <a href="#contact" class="btn-secondary">Get in touch</a>
-    </div>
-    <div class="hero-scroll">
-      <span class="scroll-line"></span>
-      scroll to explore
+    <div class="hero-layout">
+      <div class="hero-text">
+        <div class="hero-eyebrow">IT Graduate · Cum Laude</div>
+        <h1>
+          Chan<br/>
+          <span class="hero-accent">Sayson</span><span class="cursor"></span>
+        </h1>
+        <div class="cum-laude-badge">🏅 Cum Laude Graduate</div>
+        <p class="hero-sub">
+          IT graduate with hands-on experience in web development, hardware integration, Linux systems, and database management. Passionate about building real-world tech solutions.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View my work</a>
+          <a href="#contact" class="btn-secondary">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap" id="photoWrap">
+        <img id="profilePhoto" src="" alt="Chan Sayson" />
+        <div class="photo-placeholder" id="photoPlaceholder">
+          <span>📷</span>
+          <div>Your Photo</div>
+          <button class="upload-btn" onclick="document.getElementById('photoInput').click()">Upload Photo</button>
+        </div>
+        <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(event)" />
+      </div>
     </div>
   </div>
 
@@ -498,27 +580,27 @@
     <div class="section-label">01 — About</div>
     <div class="about-grid">
       <div class="about-text fade-up">
-        <h2>A bit about me</h2>
-        <p>I'm <strong>Your Name</strong>, a developer with a passion for crafting polished, user-first experiences. I love the intersection of great design and solid engineering.</p>
-        <p>When I'm not writing code, I'm exploring new frameworks, contributing to open source, or sketching interface ideas. I care deeply about <strong>performance, accessibility, and detail</strong>.</p>
-        <p>Currently open to <strong>freelance projects and full-time roles</strong>.</p>
+        <h2>About me</h2>
+        <p>I'm <strong>Chan Sayson</strong>, an IT graduate with Latin honors (<strong>Cum Laude</strong>). I have solid experience in web development using HTML, CSS, Java, and database tools like XAMPP, phpMyAdmin, MariaDB, and MySQL.</p>
+        <p>I'm also experienced in <strong>Linux system administration</strong>, including Ubuntu, Drupal CMS, and MariaDB/MySQL server setup. I enjoy working on both software and hardware — including <strong>IoT projects</strong> with ESP8266, Arduino, and RFID systems.</p>
+        <p>Beyond tech, I'm an active student leader — serving as a <strong>Research Leader</strong>, Dean's Lister, and a recognized participant in campus events.</p>
       </div>
       <div class="about-stats fade-up">
         <div class="stat-block">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Years of experience</div>
+          <div class="stat-number">CL</div>
+          <div class="stat-label">Cum Laude Graduate</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Projects delivered</div>
+          <div class="stat-number">DL</div>
+          <div class="stat-label">Dean's Lister — 2nd Sem AY 2</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Happy clients</div>
+          <div class="stat-number">4th</div>
+          <div class="stat-label">Placer — Intramurals 2022</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Bugs squashed</div>
+          <div class="stat-number">★</div>
+          <div class="stat-label">4th Star of the Night — Glam CoTEwood</div>
         </div>
       </div>
     </div>
@@ -527,55 +609,90 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-label">02 — Skills</div>
-    <h2>What I work with</h2>
-    <p class="section-intro">A toolkit built over years of shipping real products.</p>
+    <h2>What I know</h2>
+    <p class="section-intro">Technologies and tools I've worked with hands-on.</p>
     <div class="skills-grid fade-up">
-      <div class="skill-card"><div class="skill-icon">⚛️</div><div class="skill-name">React / Next.js</div><div class="skill-level">Expert</div></div>
-      <div class="skill-card"><div class="skill-icon">🟦</div><div class="skill-name">TypeScript</div><div class="skill-level">Expert</div></div>
-      <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">CSS / Tailwind</div><div class="skill-level">Expert</div></div>
-      <div class="skill-card"><div class="skill-icon">🟩</div><div class="skill-name">Node.js</div><div class="skill-level">Advanced</div></div>
-      <div class="skill-card"><div class="skill-icon">🐘</div><div class="skill-name">PostgreSQL</div><div class="skill-level">Advanced</div></div>
-      <div class="skill-card"><div class="skill-icon">▲</div><div class="skill-name">Vercel / Deploy</div><div class="skill-level">Advanced</div></div>
-      <div class="skill-card"><div class="skill-icon">🐙</div><div class="skill-name">Git / GitHub</div><div class="skill-level">Expert</div></div>
-      <div class="skill-card"><div class="skill-icon">🔥</div><div class="skill-name">Firebase</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML & CSS</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">☕</div><div class="skill-name">Java</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">MySQL / MariaDB</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">🐘</div><div class="skill-name">phpMyAdmin</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">XAMPP</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">🐧</div><div class="skill-name">Ubuntu / Linux</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">🌿</div><div class="skill-name">Drupal CMS</div><div class="skill-level">Proficient</div></div>
+      <div class="skill-card"><div class="skill-icon">📡</div><div class="skill-name">ESP8266 & Arduino</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">🔒</div><div class="skill-name">RFID Integration</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">Research & Analysis</div><div class="skill-level">Advanced</div></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-label">03 — Achievements</div>
+    <h2>Highlights</h2>
+    <p class="section-intro">Recognition and milestones throughout my academic journey.</p>
+    <div class="achievements-grid">
+
+      <div class="achievement-card fade-up">
+        <div class="achievement-icon">🏅</div>
+        <div class="achievement-title">Cum Laude Graduate</div>
+        <div class="achievement-desc">Graduated with Latin honors, recognizing consistent academic excellence throughout the program.</div>
+        <div class="achievement-year">Academic Achievement</div>
+      </div>
+
+      <div class="achievement-card fade-up" style="transition-delay:0.1s">
+        <div class="achievement-icon">📋</div>
+        <div class="achievement-title">Dean's Lister</div>
+        <div class="achievement-desc">Recognized on the Dean's List during the 2nd semester of 2nd Academic Year for outstanding academic performance.</div>
+        <div class="achievement-year">2nd Sem · 2nd Academic Year</div>
+      </div>
+
+      <div class="achievement-card fade-up" style="transition-delay:0.2s">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-title">Intramurals — 4th Placer</div>
+        <div class="achievement-desc">Placed 4th in the Intramurals 2022 with the theme "Calibrating Sports Culture and the Arts in the New Normal."</div>
+        <div class="achievement-year">2022</div>
+      </div>
+
+      <div class="achievement-card fade-up" style="transition-delay:0.3s">
+        <div class="achievement-icon">⭐</div>
+        <div class="achievement-title">4th Star of the Night</div>
+        <div class="achievement-desc">Recognized as 4th Star of the Night at the Acquaintance Party — Glam CoTEwood.</div>
+        <div class="achievement-year">Acquaintance Party</div>
+      </div>
+
+      <div class="achievement-card fade-up" style="transition-delay:0.4s">
+        <div class="achievement-icon">🔬</div>
+        <div class="achievement-title">Research Leader</div>
+        <div class="achievement-desc">Led research titled "Enhancing Online Public Access Catalog through Web-Based Survey Feedback and Analysis."</div>
+        <div class="achievement-year">Research Project</div>
+      </div>
+
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label">03 — Projects</div>
-    <h2>Selected work</h2>
-    <p class="section-intro">Things I've built that I'm proud of.</p>
+    <div class="section-label">04 — Projects</div>
+    <h2>My projects</h2>
+    <p class="section-intro">Real-world systems I've built and researched.</p>
     <div class="projects-grid">
 
       <div class="project-card fade-up">
-        <div class="project-tag">Full-stack · 2024</div>
-        <div class="project-title">Project Alpha</div>
-        <p class="project-desc">A SaaS dashboard for tracking team productivity with real-time analytics, role-based access, and Stripe billing. Built with Next.js, Prisma, and PostgreSQL.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ Live demo</a>
-          <a href="#" class="project-link project-link-github">GitHub →</a>
-        </div>
+        <div class="project-tag">Research · Web-Based</div>
+        <div class="project-title">Online Public Access Catalog</div>
+        <p class="project-desc">Led a research project focused on enhancing an Online Public Access Catalog (OPAC) through a web-based survey feedback and analysis system to improve library user experience.</p>
       </div>
 
       <div class="project-card fade-up" style="transition-delay:0.1s">
-        <div class="project-tag">Frontend · 2024</div>
-        <div class="project-title">Design System</div>
-        <p class="project-desc">An open-source component library with 40+ accessible components. Published to npm, documented with Storybook, tested with Vitest.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ Docs</a>
-          <a href="#" class="project-link project-link-github">GitHub →</a>
-        </div>
+        <div class="project-tag">IoT · Hardware · Security</div>
+        <div class="project-title">ESP8266 + RFID Security System</div>
+        <p class="project-desc">Integrated ESP8266 Wi-Fi module with Arduino and an RFID scanner to build a smart security system for website and physical access control.</p>
       </div>
 
       <div class="project-card fade-up" style="transition-delay:0.2s">
-        <div class="project-tag">Mobile · 2023</div>
-        <div class="project-title">Budget App</div>
-        <p class="project-desc">A cross-platform expense tracker built with React Native and Expo. Offline-first with local SQLite storage and cloud sync via Supabase.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ App Store</a>
-          <a href="#" class="project-link project-link-github">GitHub →</a>
-        </div>
+        <div class="project-tag">Linux · Server Admin</div>
+        <div class="project-title">Ubuntu + Drupal Server Setup</div>
+        <p class="project-desc">Installed and configured Ubuntu Linux with Drupal CMS, MariaDB, and MySQL for a full local server environment — covering installation, user management, and database configuration.</p>
       </div>
 
     </div>
@@ -584,30 +701,46 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
-      <div class="section-label" style="text-align:center">04 — Contact</div>
-      <h2>Let's build something</h2>
-      <p>Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+      <div class="section-label" style="text-align:center">05 — Contact</div>
+      <h2>Get in touch</h2>
+      <p>Feel free to reach out for opportunities, collaborations, or just to say hello!</p>
+      <div class="contact-info">
+        <div class="contact-item"><span>📞</span> 09302963466</div>
+        <div class="contact-item"><span>✉️</span> chansayson890@gmail.com</div>
+      </div>
       <div class="contact-links">
-        <a href="mailto:you@email.com" class="btn-primary">Send me an email</a>
-        <a href="https://github.com/yourusername" target="_blank" class="btn-secondary">GitHub</a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="btn-secondary">LinkedIn</a>
+        <a href="mailto:chansayson890@gmail.com" class="btn-primary">Send Email</a>
+        <a href="tel:09302963466" class="btn-secondary">Call Me</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span>// yourname.dev</span>
-    <span>Designed & built with care · 2024</span>
+    <span>// Chan Sayson · IT Graduate · Cum Laude</span>
+    <span>© 2024</span>
   </footer>
 
   <script>
     // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Photo upload
+    function handlePhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = document.getElementById('profilePhoto');
+        const placeholder = document.getElementById('photoPlaceholder');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        placeholder.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
   </script>
 </body>
 </html>
